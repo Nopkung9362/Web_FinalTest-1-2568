@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: Winky Rough;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Months in a Year</h1>
+    <p>
+        According to the Gregorian calendar of modern time, there are 12 months in a year. Each month has either 30 or
+        31 days, except for one month of February which has 28 or 29 days, depending on the year being a leap year.
+        Observe the name given below which shows the list of all the 12 months in a year. <a href="#"
+            onclick="listOfMonths();">click here</a>
+    </p>
+
+    <p id="pmonths"></p>
+
+    <!--
+        <ul>
+            <li>January</li>
+            <li>February</li>
+            <li>March</li>
+        </ul>
+     -->
+
+
+    <h1>How to Remember the Days of a Month?</h1>
+    <p>
+        The number of days in a month need to be memorized. We should keep in mind that we have months with 31 days,
+        months with 30 days, and a month which has 28 or 29 days. The following method helps us remember these months
+        along with the number of days that they have.
+    </p>
+
+    <script>
+
+        const months = ["January", "February",
+            "March", "April",
+            "May", "June",
+            "July", "August",
+            "September", "October",
+            "November", "December"];
+        // list of months
+        function listOfMonths() {
+            let ul1 = document.createElement("ul");
+            for (let month of months) {
+                let li1 = document.createElement("li");
+                let text = document.createTextNode(month);
+                li1.appendChild(text);
+                ul1.appendChild(li1);
+            }
+            document.getElementById("pmonths").appendChild(ul1);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

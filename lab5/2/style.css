@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+#title_page h1, #title_page h4 {
+    display: inline-block; /* เปลี่ยนพฤติกรรมให้วางเรียงกันได้ */
+    margin: 0; /* ลบ margin เริ่มต้น */
+}
+
+header {
+
+    margin-bottom: 30px;
+}
+
+
+/* ------------------ Grid Layout หลัก ------------------ */
+
+.gallery-container {
+    display: grid;
+    /* กำหนดให้มี 4 คอลัมน์ ขนาดเท่ากัน (1fr) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* ระยะห่างระหว่าง Grid Items */
+    max-width: 1200px; /* จำกัดความกว้างสูงสุดของแกลเลอรี */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+}
+
+.gallery-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    overflow: hidden; /* ป้องกันเนื้อหาที่อาจล้นออกมา */
+}
+
+img {
+    width: auto;
+    height: 200px; /* กำหนดความสูงชั่วคราว */
+    background-color: #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.cat-name {
+    margin: 0;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ------------------ Responsive Design Breakpoints ------------------ */
+
+/* Breakpoint 1: หน้าจอแคบกว่า 900px จะเปลี่ยนเป็น 2 คอลัมน์ */
+@media (max-width: 900px) {
+    .gallery-container {
+        /* เปลี่ยนเป็น 2 คอลัมน์ ขนาดเท่ากัน */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; /* ลดระยะห่างลงเล็กน้อย */
+    }
+}
+
+/* Breakpoint 2: หน้าจอแคบกว่า 550px จะเปลี่ยนเป็น 1 คอลัมน์ */
+@media (max-width: 550px) {
+    .gallery-container {
+        /* เปลี่ยนเป็น 1 คอลัมน์เต็มความกว้าง */
+        grid-template-columns: 1fr;
+        gap: 10px; /* ลดระยะห่างลงอีก */
+    }
+}

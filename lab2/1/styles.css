@@ -1,0 +1,36 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+} 
+h2 {
+    color: white;
+}
+
+img {
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+table {
+    background-color: white;
+    table-layout: auto;
+    width: fit-content;
+    align-items: center;
+    margin: 10px;
+    border-spacing: 8px; 
+}
+tr, td {
+    background-color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    border-radius: 5px;
+}
+tr {
+    background-color: #f2f2f2;
+    margin-bottom: 50px;
+}

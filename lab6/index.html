@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="out"></p>
+    <div id="div1"></div>
+    <script>
+
+        let person = {
+            "firstname": "John",
+            "lastname": "Doe",
+            "age": 30,
+            "cars": ["Toyota", "BMW", "BVD", "Honda", "Hyndai"]
+        };
+        document.getElementById("out").innerHTML = person.firstname;
+        // ***** วิธีที่ 2 *****
+        function show_data(data) {
+            // your code 
+            let text = '';
+            text += data.squadName;
+            text += '<br> <p>Home Town : ' + data.homeTown + ' (' + data.formed + ') </p>'
+            text += '<ol>'
+            for (d of data.members) {
+                text += '<br> <li>Name : ' + d.name + ' Age : ' + d.age + '</li>';
+
+                text += '<ol>'
+                for (p of d.powers) {
+                    text += '<br> <li>Power  : ' + p + '</li>';
+                }
+                text += '</ol>'
+            }
+            text += '</ol>'
+
+            document.getElementById('div1').innerHTML = text;
+        }
+        fetch('superheroes.json')
+            .then(response => response.json())
+            .then(data => show_data(data))
+            .catch(error => console.log('error', error));
+    </script>
+
+</body>
+
+</html>

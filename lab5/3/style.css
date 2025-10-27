@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+#title_page h1,
+#title_page h4 {
+    display: inline-block;
+    /* เปลี่ยนพฤติกรรมให้วางเรียงกันได้ */
+    margin: 0;
+    /* ลบ margin เริ่มต้น */
+}
+
+header {
+
+    margin-bottom: 30px;
+}
+
+
+/* ------------------ Grid Layout หลัก ------------------ */
+
+.gallery-container {
+    display: grid;
+    /* กำหนดให้มี 4 คอลัมน์ ขนาดเท่ากัน (1fr) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* ระยะห่างระหว่าง Grid Items */
+    max-width: 1200px;
+    /* จำกัดความกว้างสูงสุดของแกลเลอรี */
+    margin: 0 auto;
+    /* จัดกึ่งกลาง */
+}
+
+.gallery-item {
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    /* ป้องกันเนื้อหาที่อาจล้นออกมา */
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    /* กำหนดความสูงชั่วคราว */
+    background-color: #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 25px;
+}
+
+.name {
+    /* margin: 0; */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* ------------------ Responsive Design Breakpoints ------------------ */
+
+/* Breakpoint 1: หน้าจอแคบกว่า 900px จะเปลี่ยนเป็น 2 คอลัมน์ */
+@media (max-width: 900px) {
+    img {
+        width: 250px;
+        height: 250px;
+        /* กำหนดความสูงชั่วคราว */
+        background-color: #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .gallery-container {
+        /* เปลี่ยนเป็น 2 คอลัมน์ ขนาดเท่ากัน */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        /* ลดระยะห่างลงเล็กน้อย */
+    }
+}
+
+/* Breakpoint 2: หน้าจอแคบกว่า 550px จะเปลี่ยนเป็น 1 คอลัมน์ */
+@media (max-width: 600px) {
+    .gallery-container {
+        /* เปลี่ยนเป็น 1 คอลัมน์เต็มความกว้าง */
+        grid-template-columns: 1fr;
+        gap: 10px;
+        /* ลดระยะห่างลงอีก */
+    }
+
+    img {
+        width: 300px;
+        height: 300px;
+        /* กำหนดความสูงชั่วคราว */
+        background-color: #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+}

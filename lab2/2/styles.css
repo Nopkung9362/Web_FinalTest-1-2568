@@ -1,0 +1,18 @@
+.score-bar-container {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.score-bar {
+    height: 30px;
+    line-height: 15px;
+    color: black;
+    text-align: left;
+    padding-left: 10px;
+    border-radius: 5px;
+
+}
+.score {
+    width: 300px;
+}

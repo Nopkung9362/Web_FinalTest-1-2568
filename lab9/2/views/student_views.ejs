@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th , td {
+            border: 1px solid;
+            padding: 10px;
+
+        }
+
+        th {
+            background-color: lightblue;
+        }
+
+        td {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>67070125 Lab 9/1 : Template Engine and Work with Database</h2>
+        <ul>
+            <li><a href="/createuser">Create User</a></li>
+        </ul>
+    <h2>User Data (Manager)</h2>
+    <table>
+        <thead>
+            <th>username</th>
+            <th>password</th>
+            <th>email</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>age</th>
+            <th>address</th>
+            <th>phone</th>
+        </thead>
+        <tbody>
+            <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+
+            <% data.forEach((item)=>{ %>
+                <tr>
+                    <td>
+                        <%=item.username%>
+                    </td>
+                    <td>
+                        <%=item.password%>
+                    </td>
+                    <td>
+                        <%=item.email%>
+                    </td>
+                    <td>
+                        <%=item.firstname%>
+                    </td>
+                    <td>
+                        <%=item.lastname%>
+                    </td>
+                    <td>
+                        <%=item.age%>
+                    </td>
+                    <td>
+                        <%=item.address%>
+                    </td>
+                    <td>
+                        <%=item.phone%>
+                    </td>
+                </tr>
+
+
+                <% }); %>
+        </tbody>
+    </table>
+    <h2><a href="/">Go Back to Main Page</a></h2>
+</body>
+
+</html>

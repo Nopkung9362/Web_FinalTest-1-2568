@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6/4 by 67070125</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-header i {
+    color: #4267b2;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+#movie-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#movie-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+#add-btn {
+    background-color: #4267b2;
+}
+
+#add-btn:hover {
+    background-color: #365899;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#clear-all-btn {
+    background-color: #ec2323;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    font-weight: normal;
+    padding: 8px 12px;
+}
+
+#clear-all-btn:hover {
+    background-color: #e4e6eb;
+}
+
+.movie-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-item:last-child {
+    margin-bottom: 0;
+}
+
+.movie-item span {
+    font-size: 16px;
+    color: #333;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    padding: 6px 12px;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.empty-state {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+ #title_page {
+    display: flex;
+            padding: 10px;
+            background-color: aquamarine;
+            text-align: center;
+        }
+
+        #title_page h1,
+        #title_page h4 {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const movieForm = document.getElementById('movie-form');
+    const movieInput = document.getElementById('movie-input');
+    const movieListContainer = document.getElementById('movie-list-container');
+    const clearAllBtn = document.getElementById('clear-all-btn');
+    const emptyMessage = document.getElementById('empty-message');
+
+    // ฟังก์ชันสำหรับดึงข้อมูลจาก Local Storage
+    function getMovies() {
+        const movies = JSON.parse(localStorage.getItem('movies')) || [];
+        return movies;
+    }
+
+    // ฟังก์ชันสำหรับบันทึกข้อมูลลง Local Storage
+    function saveMovies(movies) {
+        localStorage.setItem('movies', JSON.stringify(movies));
+    }
+
+    // ฟังก์ชันสำหรับแสดงผลรายการบนหน้าเว็บ
+    function renderMovies() {
+        const movies = getMovies();
+        movieListContainer.innerHTML = '';
+        
+        if (movies.length === 0) {
+            emptyMessage.style.display = 'block';
+            clearAllBtn.style.display = 'none';
+        } else {
+            emptyMessage.style.display = 'none';
+            clearAllBtn.style.display = 'block';
+
+            movies.forEach(movie => {
+                const movieItem = document.createElement('div');
+                movieItem.className = 'movie-item';
+                movieItem.dataset.name = movie;
+
+                movieItem.innerHTML = `
+                    <span>${movie}</span>
+                    <button class="delete-btn"><i class="fa-solid fa-trash-can"></i> ลบ</button>
+                `;
+                
+                movieListContainer.appendChild(movieItem);
+            });
+        }
+    }
+
+    // ฟังก์ชันสำหรับเพิ่มภาพยนตร์
+    function addMovie(e) {
+        e.preventDefault(); // ป้องกันการ reload หน้าจอ
+
+        const movieName = movieInput.value.trim();
+
+        if (movieName === '') {
+            alert('กรุณากรอกชื่อภาพยนตร์หรือซีรีส์');
+            return;
+        }
+
+        const movies = getMovies();
+        movies.push(movieName);
+        saveMovies(movies);
+        
+        movieInput.value = ''; // ล้างช่องกรอกข้อมูล
+        renderMovies(); // อัปเดตรายการบนหน้าเว็บ
+    }
+
+    // ฟังก์ชันสำหรับลบภาพยนตร์
+    function deleteMovie(e) {
+        if (e.target.classList.contains('delete-btn')) {
+            const movieItem = e.target.closest('.movie-item');
+            const movieName = movieItem.dataset.name;
+            
+            const movies = getMovies();
+            const updatedMovies = movies.filter(movie => movie !== movieName);
+            saveMovies(updatedMovies);
+
+            renderMovies(); // อัปเดตรายการบนหน้าเว็บ
+        }
+    }
+
+    function clearAllMovies() {
+        if (confirm('คุณแน่ใจหรือไม่ว่าต้องการลบทุกรายการ?')) {
+            localStorage.removeItem('movies');
+            renderMovies();
+        }
+    }
+
+    // เพิ่ม Event Listeners
+    movieForm.addEventListener('submit', addMovie);
+    movieListContainer.addEventListener('click', deleteMovie);
+    clearAllBtn.addEventListener('click', clearAllMovies);
+
+    renderMovies();
+});
+</script>
+</head>
+<body>
+    <div id="title_page">
+        <h1 style="margin-top: 20px;">Lab 6 - Task 4 by 67070125</h1>
+        <h4 id="littletext">(Noppo)</h4>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-clapperboard"></i>
+                <h2>รายการภาพยนตร์/ซีรีส์โปรด</h2>
+            </div>
+            
+            <div class="card-body">
+                <form id="movie-form">
+                    <input type="text" id="movie-input" placeholder="ชื่อภาพยนตร์หรือซีรีส์...">
+                    <button type="submit" id="add-btn"><i class="fa-solid fa-plus"></i> เพิ่ม</button>
+                </form>
+
+                <div class="form-actions">
+                    <button id="clear-all-btn"><i class="fa-solid fa-trash-can"></i> ลบทั้งหมด</button>
+                </div>
+                
+                <div id="movie-list-container">
+                    </div>
+                
+                <p id="empty-message" class="empty-state">ยังไม่มีรายการโปรด</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

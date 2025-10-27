@@ -1,0 +1,74 @@
+//views/show.ejs
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            font-size: 24px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+
+        }
+
+        td,
+        th {
+            border: 1px solid #000000;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Instructor Data</h1>
+    <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+    <!--  
+    data.forEach((item)=>{
+        item.ID
+        item.name
+    });
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</td>
+                <th>name</th>
+                <th>dept_name</th>
+<th>salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item)=>{ %>
+
+                <tr>
+                    <td>
+                        <%=item.ID%>
+                    </td>
+                    <td>
+                        <%=item.name%>
+                    </td>
+                    <td>
+                        <%=item.dept_name%>
+                    </td>
+                    <td>
+                        <%=item.salary %>
+                    </td>
+                 
+
+                </tr>
+
+                <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>

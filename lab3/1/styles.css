@@ -1,0 +1,42 @@
+h1 {
+    font : bold 40px Arial, sans-serif;
+}
+
+.content {
+  max-width: 60%;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 400px;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+}
+
+input[type="radio"] {
+    width: 30px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    
+
+}
+
+textarea {
+    margin: 5px 0;
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+}

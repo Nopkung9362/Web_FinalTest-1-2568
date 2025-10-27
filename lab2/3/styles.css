@@ -1,0 +1,17 @@
+.red_lol {
+    color: red;
+    background-color: lightblue;
+}
+table {
+    width : 40%;
+}
+td {
+    border: 2px solid black;
+    width : 4%;
+}
+
+div {
+    padding-left: 30%;
+    justify-content:center;
+    margin: auto;
+}

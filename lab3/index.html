@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamental Web Programming Lab.</title>
+    <link href="styles.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin-left : 20%;
+            margin-right: 20%;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            border-color: #333;
+            border-color: blue;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #image1{
+            margin: 10px;
+            transition: transform 0.3s ease;
+            border: green solid 10px;
+        }
+
+        #image2{
+            margin: 10px;
+            transition: transform 0.3s ease;
+            border: red solid 10px;
+        }
+    </style>
+    <script src="script.js" ></script>
+</head>
+<body>
+
+    <!-- <h1 id="say"></h1>
+    <script>
+        let user = prompt("Hello, What's your name?","Enter your name.");
+        document.getElementById("say").innerHTML = "Hello " + user;
+    </script> -->
+
+    <h1>Moo Deng's Daily Activities</h1>
+    <p id="listact"></p>
+
+    <script>
+
+        let acts = ["Wakes up for a bath and waits for Mom to eat breakfast.",
+                "Walks around, showing off before heading to the water for a nap.",
+                "Takes a nap in the water.",
+                "Might get up for a stroll or a nap on land.",
+                "Naps on land.",
+                "Naps in the water again.",
+                "Mom gets out of the water for dinner while Moo Deng naps.",
+                "Mom eats grass while Moo Deng waits, occasionally running a bit, followed by a long nap until evening.",
+                "Plays with Mom in the water.",
+                "Drinks milk and playfully disturbs Mom.",
+                "Sleeps soundly for hours."];
+        
+        // แสดงผลเป็น list
+        
+        let text = "<ul>";
+        acts.forEach(showList);
+        function showList(item,index) {
+            text += '<li>' + (index+1) + ". "+ item + '</li>';
+        }
+        text += "</ul>"; 
+        document.getElementById("listact").innerHTML = text;
+
+
+        // ตัวอย่าง function 
+        function changeimg() {
+         document.getElementById('image1').src = "http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md2.png";
+         document.getElementById('image2').src = "http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md1.png";
+    }
+
+    // Handling a click event
+
+    const myBtnAddEvent = document.getElementById('myButton');
+    myBtnAddEvent.addEventListener('click', function() {
+        document.getElementById('image1').src = "http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md2.png";
+        document.getElementById('image2').src = "http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md1.png";
+    });
+        
+    </script>
+
+
+    <img id="image1" src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md1.png" > 
+    <img id="image2" src="http://webdev.it.kmitl.ac.th/labdocs/lab3/images/md2.png" > <br> 
+    <button id="myButton">Change</button>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+#title_page h1, #title_page h4 {
+    display: inline-block; /* เปลี่ยนพฤติกรรมให้วางเรียงกันได้ */
+    margin: 0; /* ลบ margin เริ่มต้น */
+}
+
+header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+@media (max-width: 400px) {
+    .container {
+        flex-direction: column;
+        /* เปลี่ยนทิศทางของ Flexbox ให้เป็นแนวตั้ง */
+    }
+
+    .column {
+        flex: none;
+        /* ยกเลิกการขยายตัว */
+        width: 100%;
+        /* ทำให้แต่ละคอลัมน์เต็มความกว้างของหน้าจอ */
+        margin-bottom: 20px;
+        /* เพิ่มระยะห่างด้านล่างระหว่างคอลัมน์ */
+    }
+}
