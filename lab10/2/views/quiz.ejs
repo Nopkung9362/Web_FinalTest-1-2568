@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Time LOL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- header -->
+    <%- include("header") %>
+
+        <!-- Quiz content here -->
+        <% data.forEach((item)=>{ %>
+
+            <h2><%=item.QID%>.
+                <%=item.Stem%> <br></h2>
+            <input type="radio" name="q<%=item.QID%>" value="A"><%=item.Alt_A%> <br>
+            <input type="radio" name="q<%=item.QID%>" value="C"><%=item.Alt_C%> <br>
+            <input type="radio" name="q<%=item.QID%>" value="D"><%=item.Alt_D%> <br>
+            <input type="radio" name="q<%=item.QID%>" value="B"><%=item.Alt_B%> <br>
+            <br>    
+
+                    <% }); %>
+                        <!-- footer -->
+                        <%- include("footer") %>
+</body>
+
+</html>

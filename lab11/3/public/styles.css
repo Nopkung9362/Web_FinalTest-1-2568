@@ -1,0 +1,51 @@
+
+        footer {
+            font-family: myWebFont;
+            text-align: center;
+            padding: 10px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 2px Solid black;
+        }
+
+        th
+, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+            font-family: myWebFont;
+
+        }
+
+        th {
+            background-color: lightblue;
+            text-align: center;
+
+        }
+
+        input[type=radio] {
+            transform: scale(1.5);
+            margin-right: 10px;
+        }
+
+        input[type=text] {
+            font-family: myWebFont;
+            font-size: 15px;
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input[type=submit] {
+            font-family: myWebFont;
+            font-size: 15px;
+            padding: 10px 20px;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+        }

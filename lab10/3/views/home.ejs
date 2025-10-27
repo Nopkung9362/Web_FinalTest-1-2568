@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Time LOL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- header -->
+    <%- include("header") %>
+        <%- include("input") %>
+            <h2>รายการคำสั่งซื้อ</h2>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>ลูกค้า</th>
+                    <th>สินค้า</th>
+                    <th>สถานะ</th>
+                    <th>เปลี่ยนสถานะ</th>
+                </thead>
+                <!-- Quiz content here -->
+                <% data.forEach((item)=>{ %>
+                    <tr>
+                        <td>
+                            <%=item.ID%>
+                        </td>
+                        <td>
+                            <%=item.customer_name%>
+                        </td>
+                        <td>
+                            <%=item.product_name%>
+                        </td>
+                        <td>
+                            <%=item.status%>
+                        </td>
+                        <td>
+                            <select id="product_status<%=item.ID%>" name="status">
+                                <option value="รอดำเนินการ">รอดำเนินการ</option>
+                                <option value="กำลังจัดส่ง">กำลังจัดส่ง</option>
+                                <option value="จัดส่งแล้ว">จัดส่งแล้ว</option>
+                            </select>
+                            <a id='update_link<%=item.ID%>' href="#" onclick="updateStatus('<%=item.ID%>')">อัปเดต</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </table>
+            <!-- footer -->
+            <%- include("footer") %>
+                <script>
+                    function updateStatus(itemId) {
+                        var status = document.getElementById('product_status'+itemId).value;
+                        // 5. สร้าง URL ใหม่
+                        var newHref = "/update?id=" + itemId + "&status=" + status;
+
+                        document.getElementById('update_link'+itemId).href = newHref;
+                    }
+                </script>
+
+</body>
+
+</html>

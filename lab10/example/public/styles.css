@@ -1,0 +1,56 @@
+.menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            overflow: hidden;
+            display: flex;
+            background-color: aliceblue;
+            
+
+        }
+
+        li {
+            margin-right: 10px;
+            font-family : ARial;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    border : 2px Solid black;
+}
+
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  font-family: Arial;
+}
+
+th {
+  background-color: lightblue;
+  justify-content: center ;
+  
+
+}
+
+td {
+    background-color: lightgray;
+}
+
+form {
+    margin-top: 20px;
+    font-family: Arial;
+}
+
+input {
+    padding: 10px;
+    font-size: 15px;
+    margin : 10px;
+}

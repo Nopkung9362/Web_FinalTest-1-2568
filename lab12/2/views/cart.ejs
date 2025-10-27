@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67070125</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <%- include("header") %>
+        <h1>Cart</h1>
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+            </thead>
+            <% let totalPrice=0; %>
+                <% data.forEach((item,index)=>{ %>
+                    <tr>
+                        <td>
+                            <%= index+1 %>
+                        </td>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>1</td>
+                        <td>
+                            <%= item.price %>
+                        </td>
+                        <% totalPrice +=item.price; %>
+                    </tr>
+                    <% }); %>
+        </table>
+        <h2 style="margin : 15px; text-align: center;">Total Price : <%= totalPrice%>
+        </h2>
+
+        <a href="/clearcart" style="background-color: aquamarine;">Confirm Order</a>
+</body>
+
+</html>

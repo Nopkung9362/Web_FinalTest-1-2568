@@ -1,0 +1,51 @@
+<!-- //views/showproducts.ejs -->
+<!-- 
+รูปภาพอยู่ใน http://webdev.it.kmitl.ac.th/phone-images/ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1><a href="/cart">Cart</a></h1>
+    <table>
+        <thead>
+            <th>Phone ID</th>
+            <th>Phone Name</th>
+            <th>Phone Image</th>
+            <th>Actions</th>
+        </thead>
+        <% data.forEach((item)=>{ %>
+            <tr>
+                <td style="text-align: center;">
+                    <%=item.id%>
+                </td>
+                <td>
+                    <p style="font: bold ; font-size: 20px;">
+                        <%=item.name%>
+                    </p>
+                    <ul>
+                        <li>
+                            <%=item.storage%>
+                        </li>
+                        <li>
+                            <%=item.camera%>
+                        </li>
+                    </ul>
+                    <p>Price : <%=item.price%> $</p>
+                </td>
+                <td style="background-color: white"><img style="width: 200px; height: 200px;"
+                        src="http://webdev.it.kmitl.ac.th/phone-images/<%=item.pimage %>" alt="<%=item.pimage %>"></td>
+                <td><a href="/add-to-cart/<%=item.id%>">Add To Cart</a></td>
+            </tr>
+            <% }); %>
+    </table>
+</body>
+
+</html>

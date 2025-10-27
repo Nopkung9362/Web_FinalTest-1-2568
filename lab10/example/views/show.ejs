@@ -1,0 +1,49 @@
+<!-- //views/show.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Table</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- heaher -->
+    <%- include("header") %>
+        <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+        <table>
+            <thead>
+                <th>EmployeeId</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+            </thead>
+
+            <% data.forEach((item)=>{ %>
+                <tr>
+                    <td style="text-align: center;">
+                        <%=item.EmployeeId%>
+                    </td>
+                    <td>
+                        <%=item.FirstName+" "+item.LastName%>
+                    </td>
+                    <td><%=item.Title%></td>
+                    <td><%=item.Phone%></td>
+                    <td><%=item.Email%></td>
+                    <td style="text-align: center;">
+                        <a href="/delete?id=<%=item.EmployeeId%>">Delete</a>
+                        
+                    </td>
+</tr>
+<% }); %>   
+</table>
+
+<!-- footer -->
+    <%- include("footer") %>
+</body>
+
+</html>

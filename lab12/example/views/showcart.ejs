@@ -1,0 +1,23 @@
+//views/showcart.ejs
+
+<body>
+    
+<% data.forEach((item)=>{ %>
+    <p style="font: bold ; font-size: 20px;">
+        <%=item.name%>
+    </p>
+    <ul>
+        <li>
+            <%=item.storage%>
+        </li>
+        <li>
+            <%=item.camera%>
+        </li>
+    </ul>
+    <p>Price : <%=item.price%> $</p>
+    <hr> 
+     
+
+<% }); %>   
+
+</body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <table>
+        <thead>
+                <th>EmployeeID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>EmailAddress</th>
+                <th>JobTitle</th>
+                <th>PrimaryPhone</th>
+                <th>SecondaryPhone</th>
+                <th>Title</th>
+                <th>Notes</th>
+                <th>Attachments</th>
+        </thead>
+<% data.forEach((item)=>{ %>
+    <tr>
+        <td style="text-align: center;"><%= item.EmployeeID %></td>
+        <td><%= item.FirstName %></td>
+        <td><%= item.LastName %></td>
+        <td><%= item.EmailAddress %></td>
+        <td><%= item.JobTitle %></td>
+        <td><%= item.PrimaryPhone %></td>
+        <td><%= item.SecondaryPhone %></td>
+        <td><%= item.Title %></td>
+        <td><%= item.Notes %></td>
+        <td><%= item.Attachments %></td>
+</tr>
+<% }); %>  
+</table> 
+</body>
+</html>

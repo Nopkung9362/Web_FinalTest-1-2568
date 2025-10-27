@@ -1,0 +1,40 @@
+@font-face {
+            font-family: myWebFont;
+            font-style: italic;
+            /* font-weight: NUMERIC_WEIGHT_VALUE; */
+            src: url(fonts/Mali-Regular.ttf);
+        }
+
+        body {
+            font-family: myWebFont;
+            font-size: 20px;
+            margin: 40px;}
+
+        footer {
+            font-family: myWebFont;
+            text-align: center;
+            padding: 10px;
+            background-color: lightgray;
+            margin-top: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 2px Solid black;
+        }
+
+        th
+, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px;
+            font-family: myWebFont;
+
+        }
+
+        th {
+            background-color: lightblue;
+            text-align: center;
+
+        }

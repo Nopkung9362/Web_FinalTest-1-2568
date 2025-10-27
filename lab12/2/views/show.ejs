@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67070125</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <%- include("header") %>
+    
+    <div class="grid-container">
+        <% data.forEach((item)=>{ %>
+            <div class="card">
+                <img src="<%= item.image_url %>" style="width: 250px; height: 200px;"> <br>
+                <div class="detail">
+                    <p>
+                        <%= item.name %>
+                    </p>
+                    <p>
+                        <%= item.description %>
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <p style="padding: 5px; margin: auto">
+                        <%= item.price %> Bahts
+                    </p><a href="/add-to-cart/<%=item.product_id%>"
+                        style="padding: 5px; margin: auto; background-color: aqua; border: 2px solid;">Add to Cart</a>
+                </div>
+
+            </div>
+            <% }); %>
+    </div>
+</body>
+
+</html>
